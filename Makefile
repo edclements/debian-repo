@@ -7,6 +7,8 @@ PACKAGES = dists/buster/main/binary-amd64/Packages.gz
 default: $(PACKAGES)
 
 $(PACKAGES): $(TARGETS)
+	mkdir -p pool/main/n
+	mkdir -p dists/buster/main/binary-amd64
 	cp $(TARGETS) pool/main/n
 	dpkg-scanpackages -m pool | gzip > $(PACKAGES)
 
