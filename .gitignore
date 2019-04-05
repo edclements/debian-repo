@@ -1,0 +1,9 @@
+dists/buster/main/binary-amd64/Packages.gz
+pool/main/n/*
+packages/*_amd64.build
+packages/*_amd64.buildinfo
+packages/*_amd64.changes
+packages/*_amd64.deb
+packages/*.debian.tar.xz
+packages/*.dsc
+packages/*.orig.tar.gz

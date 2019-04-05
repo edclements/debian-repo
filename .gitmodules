@@ -1,0 +1,3 @@
+[submodule "packages/ruby-install_0.7.0-1"]
+	path = packages/ruby-install_0.7.0-1
+	url = git@github.com:edclements/ruby-install-debian.git
