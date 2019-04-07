@@ -1,4 +1,5 @@
 dists/buster/main/binary-amd64/Packages.gz
+dists/buster/main/binary-amd64/Release
 pool/main/n/*
 packages/*_amd64.build
 packages/*_amd64.buildinfo
