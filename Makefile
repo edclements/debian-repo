@@ -1,4 +1,4 @@
-TARGETS = packages/ruby-install_0.7.0-1_amd64.deb packages/chruby_0.3.9-1_amd64.deb
+TARGETS = packages/ruby-install_0.7.0-1_amd64.deb packages/chruby_0.3.9-1_amd64.deb packages/dwm_6.1-6_amd64.deb
 
 PACKAGES = dists/buster/main/binary-amd64/Packages.gz
 
@@ -26,6 +26,13 @@ packages/chruby_0.3.9.orig.tar.gz:
 
 packages/chruby_0.3.9-1_amd64.deb: packages/chruby/debian/changelog packages/chruby_0.3.9.orig.tar.gz
 	cd packages/chruby; debuild -i -us -uc
+
+packages/dwm_6.1.orig.tar.gz:
+	wget http://deb.debian.org/debian/pool/main/d/dwm/dwm_6.1.orig.tar.gz
+	mv dwm_6.1.orig.tar.gz $@
+
+packages/dwm_6.1-6_amd64.deb: packages/dwm/debian/changelog packages/dwm_6.1.orig.tar.gz
+	cd packages/dwm; debuild -i -us -uc
 
 sync: $(PACKAGES)
 	aws s3 sync --exclude "*" --include "pool/*" --include "dists/*" . s3://debian.hedaleth.net/

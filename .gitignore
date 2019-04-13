@@ -6,5 +6,6 @@ packages/*_amd64.buildinfo
 packages/*_amd64.changes
 packages/*_amd64.deb
 packages/*.debian.tar.xz
+packages/*.debian.tar.gz
 packages/*.dsc
 packages/*.orig.tar.gz
