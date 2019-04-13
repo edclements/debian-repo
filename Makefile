@@ -42,7 +42,7 @@ packages/stterm_0.8.2-1.1_amd64.deb: packages/stterm/debian/changelog packages/s
 	cd packages/stterm; debuild -i -us -uc
 
 sync: $(PACKAGES)
-	aws s3 sync --exclude "*" --include "pool/*" --include "dists/*" . s3://debian.hedaleth.net/
+	aws s3 sync --acl public-read --exclude "*" --include "pool/*" --include "dists/*" . s3://debian.hedaleth.net/
 
 clean:
 	rm -f $(PACKAGES)
