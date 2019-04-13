@@ -1,4 +1,4 @@
-TARGETS = packages/ruby-install_0.7.0-1_amd64.deb packages/chruby_0.3.9-1_amd64.deb packages/dwm_6.1-6_amd64.deb
+TARGETS = packages/ruby-install_0.7.0-1_amd64.deb packages/chruby_0.3.9-1_amd64.deb packages/dwm_6.1-6_amd64.deb packages/stterm_0.8.2-1.1_amd64.deb
 
 PACKAGES = dists/buster/main/binary-amd64/Packages.gz
 
@@ -33,6 +33,13 @@ packages/dwm_6.1.orig.tar.gz:
 
 packages/dwm_6.1-6_amd64.deb: packages/dwm/debian/changelog packages/dwm_6.1.orig.tar.gz
 	cd packages/dwm; debuild -i -us -uc
+
+packages/stterm_0.8.2.orig.tar.gz:
+	wget http://deb.debian.org/debian/pool/main/s/stterm/stterm_0.8.2.orig.tar.gz
+	mv stterm_0.8.2.orig.tar.gz $@
+
+packages/stterm_0.8.2-1.1_amd64.deb: packages/stterm/debian/changelog packages/stterm_0.8.2.orig.tar.gz
+	cd packages/stterm; debuild -i -us -uc
 
 sync: $(PACKAGES)
 	aws s3 sync --exclude "*" --include "pool/*" --include "dists/*" . s3://debian.hedaleth.net/

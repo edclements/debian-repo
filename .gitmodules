@@ -7,3 +7,6 @@
 [submodule "packages/dwm"]
 	path = packages/dwm
 	url = git@github.com:edclements/dwm-debian.git
+[submodule "packages/stterm"]
+	path = packages/stterm
+	url = git@github.com:edclements/stterm-debian.git
