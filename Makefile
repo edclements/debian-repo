@@ -17,10 +17,14 @@ packages/ruby-install_0.7.0.orig.tar.gz:
 	wget https://github.com/postmodern/ruby-install/archive/v0.7.0.tar.gz
 	mv v0.7.0.tar.gz $@
 
-packages/ruby-install_0.7.0-1_amd64.deb: packages/ruby-install_0.7.0-1/debian/changelog
+packages/ruby-install_0.7.0-1_amd64.deb: packages/ruby-install_0.7.0-1/debian/changelog packages/ruby-install_0.7.0.orig.tar.gz
 	cd packages/ruby-install_0.7.0-1; debuild -i -us -uc
 
-packages/chruby_0.3.9-1_amd64.deb: packages/chruby/debian/changelog
+packages/chruby_0.3.9.orig.tar.gz:
+	wget https://github.com/postmodern/chruby/archive/v0.3.9.tar.gz
+	mv v0.3.9.tar.gz $@
+
+packages/chruby_0.3.9-1_amd64.deb: packages/chruby/debian/changelog packages/chruby_0.3.9.orig.tar.gz
 	cd packages/chruby; debuild -i -us -uc
 
 sync: $(PACKAGES)
