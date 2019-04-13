@@ -4,3 +4,6 @@
 [submodule "packages/chruby"]
 	path = packages/chruby
 	url = git@github.com:edclements/chruby-debian.git
+[submodule "packages/dwm"]
+	path = packages/dwm
+	url = git@github.com:edclements/dwm-debian.git
