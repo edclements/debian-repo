@@ -1,14 +1,16 @@
+DIST = buster
+
 TARGETS = packages/ruby-install_0.7.0-1_amd64.deb packages/chruby_0.3.9-1_amd64.deb packages/dwm_6.1-6_amd64.deb packages/stterm_0.8.2-1.1_amd64.deb
 
-PACKAGES = dists/buster/main/binary-amd64/Packages.gz
+PACKAGES = dists/$(DIST)/main/binary-amd64/Packages.gz
 
-RELEASE = dists/buster/main/binary-amd64/Release
+RELEASE = dists/$(DIST)/main/binary-amd64/Release
 
 default: $(PACKAGES)
 
 $(PACKAGES) $(RELEASE): $(TARGETS)
 	mkdir -p pool/main/n
-	mkdir -p dists/buster/main/binary-amd64
+	mkdir -p dists/$(DIST)/main/binary-amd64
 	cp $(TARGETS) pool/main/n
 	dpkg-scanpackages -m pool | gzip > $(PACKAGES)
 	apt-ftparchive release . > $(RELEASE)
