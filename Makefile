@@ -1,4 +1,4 @@
-DIST = buster
+DIST = xenial
 
 TARGETS = packages/ruby-install_0.7.0-1_amd64.deb packages/chruby_0.3.9-1_amd64.deb packages/dwm_6.1-6_amd64.deb packages/stterm_0.8.2-1.1_amd64.deb
 
@@ -44,7 +44,7 @@ packages/stterm_0.8.2-1.1_amd64.deb: packages/stterm/debian/changelog packages/s
 	cd packages/stterm; debuild -i -us -uc
 
 sync: $(PACKAGES)
-	aws s3 sync --acl public-read --exclude "*" --include "pool/*" --include "dists/*" . s3://debian.hedaleth.net/
+	aws s3 sync --region eu-west-2 --acl public-read --exclude "*" --include "pool/*" --include "dists/*" . s3://debian.hedaleth.net/
 
 clean:
 	rm -f $(PACKAGES)
