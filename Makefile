@@ -1,4 +1,4 @@
-DIST = xenial
+DIST = bionic
 
 TARGETS = packages/ruby-install_0.7.0-1_amd64.deb packages/chruby_0.3.9-1_amd64.deb packages/dwm_6.1-6_amd64.deb packages/stterm_0.8.2-1.1_amd64.deb
 
