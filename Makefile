@@ -1,6 +1,6 @@
 DIST = bullseye
 
-TARGETS = packages/ruby-install_0.8.5-1_amd64.deb packages/chruby_0.3.9-1_amd64.deb packages/dwm_6.1-6_amd64.deb packages/stterm_0.8.2-1.1_amd64.deb
+TARGETS = packages/ruby-install_0.8.5-1_amd64.deb packages/chruby_0.3.9-1_amd64.deb packages/dwm_6.1-6_amd64.deb packages/stterm_0.8.2-1.1_amd64.deb packages/hedaleth-base_1.0_all.deb
 
 PACKAGES = dists/$(DIST)/main/binary-amd64/Packages.gz
 
@@ -42,6 +42,9 @@ packages/stterm_0.8.2.orig.tar.gz:
 
 packages/stterm_0.8.2-1.1_amd64.deb: packages/stterm/debian/changelog packages/stterm_0.8.2.orig.tar.gz
 	cd packages/stterm; debuild -i -us -uc
+
+packages/hedaleth-base_1.0_all.deb:
+	cd packages; equivs-build hedaleth-base
 
 sync: $(PACKAGES)
 	aws s3 sync --acl public-read --exclude "*" --include "pool/*" --include "dists/*" . s3://debian.hedaleth.net/
