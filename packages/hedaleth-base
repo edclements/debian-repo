@@ -12,7 +12,7 @@ Package: hedaleth-base
 # Pre-Depends: <comma-separated list of packages>
 Depends: vifm, ranger, tree, s3cmd, yajl-tools, zathura, alsa-utils,
  pulseaudio, paprefs, pavucontrol, pcmanfm, plantuml, pandoc, vlc, sxiv,
- awscli, tmux, git
+ awscli, tmux, git, cmus, chromium-browser, firefox
 # Recommends: <comma-separated list of packages>
 # Suggests: <comma-separated list of packages>
 # Provides: <comma-separated list of packages>
