@@ -1,6 +1,6 @@
 DIST = disco
 
-TARGETS = packages/ruby-install_0.7.0-1_amd64.deb packages/chruby_0.3.9-1_amd64.deb packages/dwm_6.1-6_amd64.deb packages/stterm_0.8.2-1.1_amd64.deb packages/hedaleth-base_1.0_all.deb
+TARGETS = packages/ruby-install_0.7.0-1_amd64.deb packages/chruby_0.3.9-1_amd64.deb packages/dwm_6.2-1_amd64.deb packages/stterm_0.8.2-1.1_amd64.deb packages/hedaleth-base_1.0_all.deb
 
 PACKAGES = dists/$(DIST)/main/binary-amd64/Packages.gz
 
@@ -29,11 +29,12 @@ packages/chruby_0.3.9.orig.tar.gz:
 packages/chruby_0.3.9-1_amd64.deb: packages/chruby/debian/changelog packages/chruby_0.3.9.orig.tar.gz
 	cd packages/chruby; debuild -i -us -uc -b
 
-packages/dwm_6.1.orig.tar.gz:
-	wget http://deb.debian.org/debian/pool/main/d/dwm/dwm_6.1.orig.tar.gz
-	mv dwm_6.1.orig.tar.gz $@
+packages/dwm_6.2.orig.tar.gz:
+	wget https://dl.suckless.org/dwm/dwm-6.2.tar.gz
+	mv dwm-6.2.tar.gz dwm_6.2.orig.tar.gz
+	mv dwm_6.2.orig.tar.gz $@
 
-packages/dwm_6.1-6_amd64.deb: packages/dwm/debian/changelog packages/dwm_6.1.orig.tar.gz
+packages/dwm_6.2-1_amd64.deb: packages/dwm/debian/changelog packages/dwm_6.2.orig.tar.gz
 	cd packages/dwm; debuild -i -us -uc -b
 
 packages/stterm_0.8.2.orig.tar.gz:
@@ -52,7 +53,7 @@ sync: $(PACKAGES)
 clean:
 	rm -f $(PACKAGES)
 	rm -f $(RELEASE)
-	rm -f pool/main/*
+	rm -rf pool/main/*
 	rm -f packages/*_amd64.build
 	rm -f packages/*_amd64.buildinfo
 	rm -f packages/*_amd64.deb
