@@ -10,3 +10,6 @@
 [submodule "packages/stterm"]
 	path = packages/stterm
 	url = git@github.com:edclements/stterm-debian.git
+[submodule "packages/ruby-install"]
+	path = packages/ruby-install
+	url = git@github.com:edclements/ruby-install-debian.git
