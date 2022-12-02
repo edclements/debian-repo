@@ -9,9 +9,9 @@ RELEASE = dists/$(DIST)/main/binary-amd64/Release
 default: $(PACKAGES)
 
 $(PACKAGES) $(RELEASE): $(TARGETS)
-	mkdir -p pool/main/n
+	mkdir -p pool/main/
 	mkdir -p dists/$(DIST)/main/binary-amd64
-	cp $(TARGETS) pool/main/n
+	cp $(TARGETS) pool/main/
 	dpkg-scanpackages -m pool | gzip > $(PACKAGES)
 	apt-ftparchive release . > $(RELEASE)
 
@@ -49,7 +49,7 @@ sync: $(PACKAGES)
 clean:
 	rm -f $(PACKAGES)
 	rm -f $(RELEASE)
-	rm -f pool/main/n/*
+	rm -f pool/main/*
 	rm -f packages/*_amd64.build
 	rm -f packages/*_amd64.buildinfo
 	rm -f packages/*_amd64.deb
